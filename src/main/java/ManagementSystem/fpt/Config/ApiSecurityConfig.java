@@ -54,7 +54,7 @@ public class ApiSecurityConfig {
                         .requestMatchers("/api/*").permitAll()
                         .requestMatchers("/api/customers/*").permitAll()
                         .requestMatchers("/api/v1/**").authenticated()
-                        .requestMatchers("/api/v3/**").authenticated()
+                        .requestMatchers("/api/user/**").authenticated()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)

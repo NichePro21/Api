@@ -83,7 +83,7 @@ public class UserService {
         newUser.setPassword(BCrypt.hashpw(signupRequest.getPassword(), BCrypt.gensalt()));
         newUser.setIsVerified(false); // Optionally set user as inactive until verified
         Set<Role> roles = new HashSet<>();
-        Role userRole = roleRepository.findByName("ROLE_CUSTOMER"); // Assuming you have a role named "ROLE_USER"
+        Role userRole = roleRepository.findByName("ROLE_EMPLOYEE"); // Assuming you have a role named "ROLE_USER"
         roles.add(userRole);
         newUser.setRoles(roles);
         // Generate and send verification code

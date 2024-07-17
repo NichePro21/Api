@@ -43,14 +43,14 @@ public class DataLoader implements ApplicationRunner {
             admin.setFirstname("Admin");
             admin.setLastname("Manager");
             admin.setEmail("admin@example.com");
+            admin.setPhone("0909090909");
             admin.setIsVerified(true);
             admin.setVerificationCode("");
             admin.setPassword(passwordEncoder.encode("adminpassword"));
             admin.setUsername("admin");
 
-            // Lấy vai trò admin từ cơ sở dữ liệu (đảm bảo đã tồn tại từ createRoleIfNotExists)
             Set<Role> roles = new HashSet<>();
-            Role userRole = roleRepository.findByName("ROLE_USER"); // Assuming you have a role named "ROLE_USER"
+            Role userRole = roleRepository.findByName("ROLE_ADMIN");
             roles.add(userRole);
             admin.setRoles(roles);
             // Lưu vào cơ sở dữ liệu
